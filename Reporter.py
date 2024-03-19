@@ -16,6 +16,8 @@ class DataReporter():
         self.dirPath    = dirPath
         timestamp       = str(datetime.now())[:20].replace(".","").replace(":","-").replace(" ","_")
         self.reportPath = "report.txt"
+        with open(self.reportPath,"w"):
+            pass
         # Setting up logging:
         logging.basicConfig(filename="log_Report.log",format='%(levelname)-8s: %(message)s')
 
@@ -36,10 +38,6 @@ class DataReporter():
         self.reportPath = self.dirPath + self.reportPath
         
     def generateReport(self):
-        # self.generateReportPath()
-        if not os.path.exists(self.reportPath):
-            with open(self.reportPath,"w"):
-                pass
         if self.mode == "User":
             with open(self.reportPath,"a") as file:
                 for key1 in self.violations:

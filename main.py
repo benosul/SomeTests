@@ -10,17 +10,18 @@ import Scanner
 import Reporter
 import sys
 
-if __name__ == "__main__":
-    dirPath     = sys.argv[0]
-    mode        = sys.argv[1]
-    loader      = Finder.DataFinder(dirPath)
-    scanner     = Scanner.DataScanner(loader,mode)
-    reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
-    
-    # print(reporter.getViolations())
-    # print(reporter.getMode())
-    # print(reporter.getDirPath())
-    # print(reporter.getReportPath())
+dirPath     = sys.argv[1]
+mode        = sys.argv[2]
+print("path: " + dirPath)
+print("mode: " + mode)
+loader      = Finder.DataFinder(dirPath)
+scanner     = Scanner.DataScanner(loader,mode)
+reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
 
-    reporter.generateReport()
-    # reporter.generateReportLogging()
+# print(reporter.getViolations())
+# print(reporter.getMode())
+# print(reporter.getDirPath())
+# print(reporter.getReportPath())
+
+reporter.generateReport()
+reporter.generateReportLogging()
