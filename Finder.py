@@ -21,7 +21,7 @@ class DataFinder():
         return self.RulesFiles
 
     def findFiles(self) -> list[str]:
-        listOfFiles = [directory+"\\"+file for directory in self.VBADirectories 
+        listOfFiles = [directory+"/"+file for directory in self.VBADirectories 
                             for file in os.listdir(directory) 
                             if file.endswith(".bas") or 
                             file.endswith(".frm") or
