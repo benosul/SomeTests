@@ -1,0 +1,1 @@
+The rules.txt file is meant to be regarded as a long list where each line should contain a single rule that is to be searched for as a REGEX.
