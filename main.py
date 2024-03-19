@@ -18,6 +18,7 @@ loader      = Finder.DataFinder(dirPath)
 scanner     = Scanner.DataScanner(loader,mode)
 reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
 
+print(loader.getSourceCodeFiles())
 # print(reporter.getViolations())
 # print(reporter.getMode())
 # print(reporter.getDirPath())
