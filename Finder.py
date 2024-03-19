@@ -1,6 +1,10 @@
+'''
+ A class that loads and contains the data required for the reporting process
+ from loading and processing the rules from the rule files to finding the files that should be scanned.
+'''
+
 import os
-# A class that loads and contains the data required for the reporting process
-# from loading and processing the rules from the rule files to finding the files that should be scanned.
+
 class DataFinder():
 
     def __init__(self, gitDirectory:str) -> None:
@@ -11,10 +15,8 @@ class DataFinder():
 
     def getSourceCodeFiles(self) -> list[str]:
         return self.SourceCodeFiles
-
     def getVBADirectories(self) -> list[str]:
         return self.VBADirectories
-    
     def getRulesFiles(self):
         return self.RulesFiles
 

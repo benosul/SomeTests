@@ -1,1 +1,2 @@
-Option Explicit
+Option\sExplicit Medium Option\sExplicit
+(Autor|Author) Medium Author

@@ -16,7 +16,7 @@ End Function
 Sub sub1()
 
 End Sub
-
+Function func3() as Long
 Private Sub sub2(arg1)
 
 End Sub
@@ -25,3 +25,5 @@ Private Function func3() as Long
 
 End Function
 
+Function func4(arg1,arg2) as Long
+Private Function func5() 
