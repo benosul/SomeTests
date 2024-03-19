@@ -15,5 +15,5 @@ if __name__ == "__main__":
     # print(reporter.getDirPath())
     # print(reporter.getReportPath())
 
-    # reporter.generateReport()
+    reporter.generateReport()
     reporter.generateReportLogging()
