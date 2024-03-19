@@ -17,7 +17,7 @@ class DataReporter():
         timestamp       = str(datetime.now())[:20].replace(".","").replace(":","-").replace(" ","_")
         self.reportPath = "\\Reports\\report.txt"
         # Setting up logging:
-        logging.basicConfig(filename=".\\log_Report.log",format='%(levelname)-8s: %(message)s')
+        logging.basicConfig(filename="log_Report.log",format='%(levelname)-8s: %(message)s')
 
     def getViolations(self):
         return self.violations
