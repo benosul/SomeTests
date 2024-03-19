@@ -4,3 +4,8 @@
 
 # Then we have maybe a class that does the checking provided a file?
 # We could have a class the logs the errors and creates two logs of must have violations and should have violations?
+
+
+if __name__ == '__main__':
+    print("Hello World")
+    print('From Main.py')
