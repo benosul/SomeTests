@@ -15,7 +15,7 @@ class DataReporter():
         self.names       = names
         self.dirPath    = dirPath
         timestamp       = str(datetime.now())[:20].replace(".","").replace(":","-").replace(" ","_")
-        self.reportPath = "report.txt"
+        self.reportPath = "\\report.txt"
         # Setting up logging:
         logging.basicConfig(filename="log_Report.log",format='%(levelname)-8s: %(message)s')
 
