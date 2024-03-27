@@ -1,6 +1,6 @@
 name: 'VBA Code Scanner'
 description: 'A code scanning tool built for the Swissgrid AG.'
-author: 'Benjamin O'Sullivan'
+author: 'Benjamin OSullivan'
 inputs:
   reportType:
     description: 'Either User or Reviewer, decided how the report is structured.'
