@@ -13,11 +13,11 @@ class DataFinder():
         self.SourceCodeFiles = self.findFiles()
         self.RulesFiles      = self.findRulesFiles()
 
-    def getSourceCodeFiles(self) -> list[str]:
+    def getSourceCodeFiles(self) -> list:
         return self.SourceCodeFiles
-    def getVBADirectories(self) -> list[str]:
+    def getVBADirectories(self) -> list:
         return self.VBADirectories
-    def getRulesFiles(self):
+    def getRulesFiles(self) -> list:
         return self.RulesFiles
 
     def findFiles(self) -> list:
