@@ -13,7 +13,6 @@ import os
 if __name__=='__main__':
   
   dirPath     = os.environ['INPUT_DIRPATH']
-  print(dirPath)
   mode        = os.environ['INPUT_REPORTTYPE']
   print("path: " + dirPath)
   print("mode: " + mode)
@@ -21,11 +20,11 @@ if __name__=='__main__':
   scanner     = Scanner.DataScanner(loader,mode)
   reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
   
-  # print(loader.getSourceCodeFiles())
-  # print(reporter.getViolations())
-  # print(reporter.getMode())
-  # print(reporter.getDirPath())
-  # print(reporter.getReportPath())
+  print(loader.getSourceCodeFiles())
+  print(reporter.getViolations())
+  print(reporter.getMode())
+  print(reporter.getDirPath())
+  print(reporter.getReportPath())
   
   reporter.generateReport()
   reporter.generateReportLogging()
