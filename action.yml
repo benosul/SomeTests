@@ -17,7 +17,9 @@ runs:
   # image: "Dockerfile"
   using: "composite"
   steps:
-    - uses: actions/checkout@v4
+    - run: ls -a
+      shell: bash
 
-    - run: python main.py
+    - name: Main
+      run: python main.py
       shell: bash
