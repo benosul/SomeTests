@@ -1,0 +1,14 @@
+name: 'VBA Code Scanner'
+description: 'A code scanning tool built for the Swissgrid AG.'
+author: 'Benjamin O'Sullivan'
+inputs:
+  reportType:
+    description: 'Either User or Reviewer, decided how the report is structured.'
+    default: 'User'
+outputs:
+  report:
+    description: 'A file list all violations '
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

@@ -1,1 +1,31 @@
-Unchanged File
+File:	.\testFilesAndDirs\Sourcecode_vba/badFunctionDeclaration.bas
+	Severity:	Medium
+		Rule:	Author
+		Rule:	Function Declaration
+			Lines: ['3', '10', '19', '24', '28', '29']
+File:	.\testFilesAndDirs\Sourcecode_vba/badVariableDeclaration.cls
+	Severity:	Medium
+		Rule:	Author
+		Rule:	Variable\Declaration
+			Lines: ['5', '7']
+File:	.\testFilesAndDirs\Sourcecode_vba/emptyModule.bas
+	Severity:	Medium
+		Rule:	Option Explicit
+		Rule:	Author
+File:	.\testFilesAndDirs\Sourcecode_vba/includes_tsda.bas
+	Severity:	Medium
+		Rule:	Author
+	Severity:	High
+		Rule:	TSDA
+			Lines: ['3']
+File:	.\testFilesAndDirs\Sourcecode_vba/noOptionExplicit.frm
+	Severity:	Medium
+		Rule:	Option Explicit
+		Rule:	Author
+File:	.\testFilesAndDirs\workbook_vba/Module1.bas
+	Severity:	Medium
+		Rule:	Author
+File:	.\testFilesAndDirs\Sourcecode_vba/cleanModule.bas
+	Severity:	Medium
+		Rule:	Function Declaration
+			Lines: ['3']
