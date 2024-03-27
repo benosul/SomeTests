@@ -15,3 +15,5 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+  steps:
+    - name: "Set GITHUB_OUTPUT"
