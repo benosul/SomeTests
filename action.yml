@@ -32,5 +32,5 @@ runs:
       shell: bash
 
     - name: Main
-      run: python main.py ${{ inputs.dirPath }} ${{ inputs.reportType }}
+      run: python source/main.py '${{ inputs.dirPath }}' '${{ inputs.reportType }}'
       shell: bash
