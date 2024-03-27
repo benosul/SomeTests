@@ -15,7 +15,8 @@ outputs:
 runs:
   # using: "docker"
   # image: "Dockerfile"
-  - uses: actions/checkout@v4
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
 
-  - run: |
-    main.py 
+    - run: main.py 
