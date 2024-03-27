@@ -33,5 +33,5 @@ class DataFinder():
         return vbaDirectories
 
     def findRulesFiles(self) -> list:
-        rulesFiles = [os.path.join(root,file) for root,dirs,files in os.walk('source/testFilesAndDirs/') for file in files if file.startswith("Rules_")]
+        rulesFiles = [os.path.join(root,file) for root,dirs,files in os.walk('source/') for file in files if file.startswith("Rules_")]
         return rulesFiles
