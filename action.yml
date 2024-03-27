@@ -3,9 +3,11 @@ description: 'A code scanning tool built for the Swissgrid AG.'
 author: 'Benjamin OSullivan'
 inputs:
   reportType:
+    required: True
     description: 'Either User or Reviewer, decided how the report is structured.'
     default: 'User'
   dirPath:
+    required: True
     description: 'The directory containing the repository that is to be searched.'
     default: './'
 outputs:
