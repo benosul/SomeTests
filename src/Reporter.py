@@ -2,8 +2,6 @@
 A class that generates a report based off of the finding of the Scanner object
 '''
 # generiere 2 Reports UserReport / ReviewerReport oder Gesamtsicht / Usersicht 
-import os
-from datetime import datetime
 import logging
 
 class DataReporter():
@@ -14,7 +12,6 @@ class DataReporter():
         self.mode       = mode
         self.names       = names
         self.dirPath    = dirPath
-        timestamp       = str(datetime.now())[:20].replace(".","").replace(":","-").replace(" ","_")
         self.reportPath = "report.txt"
         with open(self.reportPath,"w"):
             pass

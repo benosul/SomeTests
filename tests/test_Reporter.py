@@ -1,6 +1,6 @@
-import Reporter
-import Scanner
-import Finder
+import src.Reporter as Reporter
+import src.Scanner as Scanner
+import src.Finder as Finder
 
 
 if __name__ == "__main__":

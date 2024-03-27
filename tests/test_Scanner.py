@@ -1,5 +1,5 @@
-import Finder
-import Scanner
+import src.Finder as Finder
+import src.Scanner as Scanner
 
 def test_ParseRules(rules:dict):
     expectedResult  = {"have":['Option\\sExplicit'],"avoid":["tsda_"]}    

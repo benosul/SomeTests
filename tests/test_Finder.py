@@ -1,4 +1,4 @@
-import Finder
+import src.Finder as Finder
 
 def test_FindingDirectories(foundDirectories):
     expectedDirectories = [".\\CodeScanning\\testFilesAndDirs\\Sourcecode_vba",".\\CodeScanning\\testFilesAndDirs\\workbook_vba"]
