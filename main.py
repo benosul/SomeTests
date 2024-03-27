@@ -13,6 +13,7 @@ import os
 if __name__=='__main__':
   
   dirPath     = os.environ['INPUT_DIRPATH']
+  print(dirPath)
   mode        = os.environ['INPUT_REPORTTYPE']
   print("path: " + dirPath)
   print("mode: " + mode)
