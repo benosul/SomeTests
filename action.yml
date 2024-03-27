@@ -17,6 +17,13 @@ runs:
   # image: "Dockerfile"
   using: "composite"
   steps:
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      
+    - uses: actions/checkout@v4
+      with: 
+        repository: benosul/SomeTests
+        
     - run: ls -a
       shell: bash
 
