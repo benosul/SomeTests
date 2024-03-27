@@ -12,8 +12,8 @@ import os
 
 if __name__=='__main__':
   
-  dirPath     = os.environ['INPUT_DIRPATH']
-  mode        = os.environ['INPUT_REPORTTYPE']
+  dirPath     = sys.argv[1]
+  mode        = sys.argv[2]
   print("path: " + dirPath)
   print("mode: " + mode)
   loader      = Finder.DataFinder(dirPath)
