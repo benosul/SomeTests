@@ -68,18 +68,7 @@ class DataScanner():
                         name     = lineList[2].strip().replace("\\s"," ")
                         self.addToRulesDict(self.rules,"avoid",rule)
                         self.addToRulesDict(self.ruleSeverity, rule, severity)
-                        self.addToRulesDict(self.ruleNames,rule,name)          
-            # else:
-            #     with open(fileList,"r") as ruleFiles:
-            #         for line in ruleFiles.readlines():
-            #             lineList = line.split(" ")
-            #             rule     = lineList[0].strip()
-            #             severity = lineList[1].strip()
-            #             name     = lineList[2].strip().replace("\\s"," ")
-            #             self.addToRulesDict(self.rules,"other",rule)
-            #             self.addToRulesDict(self.ruleSeverity, rule, severity)
-            #             self.addToRulesDict(self.ruleNames,rule,name)
-            
+                        self.addToRulesDict(self.ruleNames,rule,name)            
 
     def addToRulesDict(self,targetdict:dict,key,value):
         if targetdict == self.rules:
@@ -91,7 +80,7 @@ class DataScanner():
                 targetdict[key] = value
             else: raise Exception("A one to one pairing was almost overwritten: " + key)
 
-    def findViolations(self,files:list[str]=[""]):
+    def findViolations(self,files:list=[""]):
         if files == [""]:
             files = self.data.getSourceCodeFiles()
         for ruleType in self.rules:
