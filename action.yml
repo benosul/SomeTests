@@ -7,7 +7,7 @@ inputs:
     default: 'User'
   dirPath:
     description: 'The directory containing the repository that is to be searched.'
-    default: '.'
+    default: './'
 outputs:
   report:
     description: 'A file list all violations '
