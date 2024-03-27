@@ -30,8 +30,5 @@ runs:
       shell: bash
 
     - name: Main
-      run: python main.py 
+      run: python main.py ${{ inputs.dirPath }} ${{ inputs.reportType }}
       shell: bash
-      env:
-        DIRPATH: ${{ inputs.dirPath }}
-        REPORTTYPE: ${{ inputs.reportType }}
