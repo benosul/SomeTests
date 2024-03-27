@@ -13,5 +13,9 @@ outputs:
     description: 'A file list all violations '
 
 runs:
-  using: "docker"
-  image: "Dockerfile"
+  # using: "docker"
+  # image: "Dockerfile"
+  - uses: actions/checkout@v4
+
+  - run: |
+    main.py 
