@@ -20,7 +20,7 @@ class DataFinder():
     def getRulesFiles(self):
         return self.RulesFiles
 
-    def findFiles(self) -> list[str]:
+    def findFiles(self) -> list:
         listOfFiles = [directory+"/"+file for directory in self.VBADirectories 
                             for file in os.listdir(directory) 
                             if file.endswith(".bas") or 
@@ -28,10 +28,10 @@ class DataFinder():
                             file.endswith(".cls")]
         return listOfFiles
 
-    def findVbaDirectories(self) -> list[str]:
+    def findVbaDirectories(self) -> list:
         vbaDirectories = [vbaDirectory for vbaDirectory,_,_ in os.walk(self.gitDirectory) if vbaDirectory.endswith("_vba")]
         return vbaDirectories
 
-    def findRulesFiles(self) -> list[str]:
+    def findRulesFiles(self) -> list:
         rulesFiles = [os.path.join(root,file) for root,dirs,files in os.walk(self.gitDirectory) for file in files if file.startswith("Rules_")]
         return rulesFiles
