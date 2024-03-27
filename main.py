@@ -8,21 +8,23 @@
 import Finder
 import Scanner
 import Reporter
-import sys
+import os
 
-dirPath     = sys.argv[1]
-mode        = sys.argv[2]
-print("path: " + dirPath)
-print("mode: " + mode)
-loader      = Finder.DataFinder(dirPath)
-scanner     = Scanner.DataScanner(loader,mode)
-reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
-
-# print(loader.getSourceCodeFiles())
-# print(reporter.getViolations())
-# print(reporter.getMode())
-# print(reporter.getDirPath())
-# print(reporter.getReportPath())
-
-reporter.generateReport()
-reporter.generateReportLogging()
+if __name__=='__main__':
+  
+  dirPath     = os.environ['dirPath']
+  mode        = os.environ['reportType']
+  print("path: " + dirPath)
+  print("mode: " + mode)
+  loader      = Finder.DataFinder(dirPath)
+  scanner     = Scanner.DataScanner(loader,mode)
+  reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
+  
+  # print(loader.getSourceCodeFiles())
+  # print(reporter.getViolations())
+  # print(reporter.getMode())
+  # print(reporter.getDirPath())
+  # print(reporter.getReportPath())
+  
+  reporter.generateReport()
+  reporter.generateReportLogging()
