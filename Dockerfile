@@ -6,7 +6,7 @@ WORKDIR /app
 # RUN pip install --target=/app os
 # RUN pip install --target=/app logging
 # RUN pip install --target=/app datetime
-RUN pip install --target=/app re
+# RUN pip install --target=/app re
 
 # A distroless container image with Python and some basics like SSL certificates
 # https://github.com/GoogleContainerTools/distroless
