@@ -12,14 +12,12 @@ Mode == Reviewer:
     violations:         { Severity : { Rule : { File : [Linenumber] } } }
 
 '''
-import Finder
-
 import re
 import os
 
 class DataScanner():
 
-    def __init__(self,data:Finder.DataFinder,reportType:str="User") -> None:
+    def __init__(self,data,reportType:str="User") -> None:
         self.rules        = {"have":[],"avoid":[]}
         self.ruleSeverity = {}
         self.ruleNames    = {}
