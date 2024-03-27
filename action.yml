@@ -12,17 +12,16 @@ inputs:
     default: './'
 outputs:
   report:
-    description: 'A file list all violations '
+    description: 'A file list all violations'
 
 runs:
   # using: "docker"
   # image: "Dockerfile"
   using: "composite"
   steps:
-    - name: Set up Python
-      uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
       
     - uses: actions/checkout@v4
       with: 
