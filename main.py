@@ -21,6 +21,7 @@ if __name__=='__main__':
   reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
   
   print(loader.getSourceCodeFiles())
+  print(loader.getRules())
   print(reporter.getViolations())
   print(reporter.getMode())
   print(reporter.getDirPath())
