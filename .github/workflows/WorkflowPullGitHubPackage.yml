@@ -18,7 +18,7 @@ jobs:
         run: echo ${{ secrets.PACKAGE_PAT }} | docker login -u ${{ github.actor }} --password-stdin ghcr.io
 
       - name: Pull Package
-        run: docker inspect ${{ env.REGISTRY }}/sometests:main
+        run: docker pull ${{ env.REGISTRY }}/sometests:main
 
       - name: Sanity Check
         run: ls -a
