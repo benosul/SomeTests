@@ -24,7 +24,7 @@ jobs:
           
       - name: Review Docker Logs
         run: |
-          docker logs <testImage>
+          docker logs testImage
         
       - name: Sanity Check
         run: ls -a 
