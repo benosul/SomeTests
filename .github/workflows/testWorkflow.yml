@@ -17,4 +17,7 @@ jobs:
         run: |
           docker pull ghcr.io/benosul/sometests:main
           docker build -t sometests .
-          docker run sometests 
+          docker run sometests "abc"
+
+      - name: Sanity Check
+        run: ls -a 
