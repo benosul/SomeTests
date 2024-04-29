@@ -21,6 +21,9 @@ jobs:
       - name: Run Docker Image
         run: |
           docker run -d --name testImage ghcr.io/${{ github.actor }}/sometests:main "abc"
+          
+      - name: Review Docker Logs
+        run: |
           docker logs <testImage>
         
       - name: Sanity Check
