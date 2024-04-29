@@ -5,15 +5,15 @@
 # Then we have maybe a class that does the checking provided a file?
 # We could have a class the logs the errors and creates two logs of must have violations and should have violations?
 
-import Finder
-import Scanner
-import Reporter
+import src.Finder
+import src.Scanner
+import src.Reporter
 import sys
 
 if __name__=='__main__':
   
-  dirPath     = sys.argv[1]
-  mode        = sys.argv[2]
+  dirPath     = "."
+  mode        = sys.argv[1]
   print("path: " + dirPath)
   print("mode: " + mode)
   loader      = Finder.DataFinder(dirPath)
