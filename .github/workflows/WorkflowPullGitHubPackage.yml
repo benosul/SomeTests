@@ -28,4 +28,4 @@ jobs:
           ARG1: "123"
           ARG2: "abc"
           ARG3: "zyx"
-        run: docker run -e ARG1 -e ARG2 -e ARG3  
+        run: docker run sometests  ARG1 ARG2 ARG3  
