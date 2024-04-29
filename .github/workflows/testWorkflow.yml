@@ -28,8 +28,8 @@ jobs:
 
       - name: Copy file from docker image
         run: |
-          docker cp testImage:report.txt .
-          docker cp testImage:report.log .
+          docker cp testImage:report.txt ./report.txt
+          docker cp testImage:report.log ./report.log
         
       - name: Sanity Check
         run: ls -a
