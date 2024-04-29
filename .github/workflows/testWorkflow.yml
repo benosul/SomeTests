@@ -16,9 +16,10 @@ jobs:
 
       - name: Test Docker Pull
         run: |
-          docker pull ghcr.io/benosul/sometests@sha256:03719957ce25d3bb4a23cd9ac3dcad02a9b5bdb82c3cdd294857ea0a7b679b08
-          docker build -t sometests .
-          docker run sometests 
+          docker pull ghcr.io/benosul/sometests:main
 
+      - name: Run Docker Image
+        run: docker run -d ghcr.io/${{ github.actor }}/sometests:main
+        
       - name: Sanity Check
         run: ls -a 
