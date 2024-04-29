@@ -11,6 +11,9 @@ import src.Reporter
 import sys
 
 if __name__=='__main__':
+
+  with open("testFile1.txt",'w'):
+    pass
   
   dirPath     = "."
   mode        = sys.argv[1]
