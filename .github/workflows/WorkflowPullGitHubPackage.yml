@@ -18,4 +18,4 @@ jobs:
         run: echo ${{ secrets.PACKAGE_PAT }} | docker login -u ${{ github.actor }} --password-stdin ghcr.io
 
       - name: Pull Package
-        run: docker inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        run: docker inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
