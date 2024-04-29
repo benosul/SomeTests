@@ -28,7 +28,14 @@ jobs:
 
       - name: Copy file from docker image
         run: |
-          docker cp testImage:testFile.txt .
+          docker cp testImage:report.txt .
+          docker cp testImage:report.log .
         
       - name: Sanity Check
-        run: ls -a 
+        run: ls -a
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Report
+          path: report.txt, report.log
