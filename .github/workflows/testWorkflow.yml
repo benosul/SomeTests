@@ -25,7 +25,11 @@ jobs:
       - name: Review Docker Logs
         run: |
           docker logs testImage
-
+          
+      - name: Copy file from docker image
+        run: |
+          docker cp testImage:./testFile1.txt testFile1.txt
+          
       - name: Copy file from docker image
         run: |
           docker cp testImage:report.txt ./report.txt
