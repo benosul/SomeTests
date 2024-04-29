@@ -22,3 +22,10 @@ jobs:
 
       - name: Sanity Check
         run: ls -a
+
+      - name: Run Docker
+        env:
+          ARG1: "123"
+          ARG2: "abc"
+          ARG3: "zyx"
+        run: docker run -e ARG1 -e ARG2 -e ARG3  
