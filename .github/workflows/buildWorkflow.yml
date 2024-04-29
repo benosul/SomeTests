@@ -17,11 +17,12 @@ jobs:
         run: |
            docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
-     - name: Sanity Checks
-       run: |
+      - name: Sanity Checks
+        run: |
            ls
            echo "-------------------------------"
            ls -a
+           
       - name: Configure Git
         run: |
           git config --global user.name "autoBuildWorkflow"
