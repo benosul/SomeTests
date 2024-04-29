@@ -1,5 +1,5 @@
 # Use the official Python base image
-FROM 3.11-alpine
+FROM python:3.11
 
 # Copy the entry point script to the working directory
 COPY src/ .
