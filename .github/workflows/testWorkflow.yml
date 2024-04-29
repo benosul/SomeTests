@@ -1,0 +1,15 @@
+name: Run Some Tests
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Test Access To PAT
+        run: |
+          echo ${{ secrets.PACKAGE_PAT }} | docker login ghcr.io -u benosul --password-stdin

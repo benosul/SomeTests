@@ -16,6 +16,13 @@ jobs:
       - name: Build Docker image
         run: |
            docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+      - name: Sanity Checks
+        run: |
+           ls
+           echo "-------------------------------"
+           ls -a
+           
       - name: Configure Git
         run: |
           git config --global user.name "autoBuildWorkflow"
@@ -23,6 +30,7 @@ jobs:
 
       - name: Commit Docker image
         run: |
+          git status
           git add .
           git commit -m "Committing Docker image"
           git push
