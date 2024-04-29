@@ -18,14 +18,6 @@ jobs:
         run: echo ${{ secrets.PACKAGE_PAT }} | docker login -u ${{ github.actor }} --password-stdin ghcr.io
 
       - name: Pull Package
-        run: docker pull ghcr.io/benosul/sometests:main
-
-      - name: Sanity Check
-        run: ls -a
-
-      - name: Run Docker
-        env:
-          ARG1: "123"
-          ARG2: "abc"
-          ARG3: "zyx"
-        run: docker run sometests  ARG1 ARG2 ARG3  
+        run: |
+          docker pull ghcr.io/benosul/sometests:main
+          docker run sometests  
