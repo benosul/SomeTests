@@ -10,6 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Test Access To PAT
+      - name: Test Docker Pull wo login
         run: |
-          echo ${{ secrets.PACKAGE_PAT }} | docker login ghcr.io -u benosul --password-stdin
+          docker pull ghcr.io/benosul/sometests:main
+          docker run sometests:main 
