@@ -1,0 +1,5 @@
+tsda_ High TSDA
+Dim.*\sas.*,\s.*\sas Medium Variable\Declaration
+^(Function|Sub) Medium Function\sDeclaration
+Function\s.*\(.*\)(\n|\n\r){0,1} Medium Function\sDeclaration
+(?<=(Then))\r?\n(\s{4}|') Medium Indenting
