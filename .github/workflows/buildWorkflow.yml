@@ -23,6 +23,7 @@ jobs:
 
       - name: Commit Docker image
         run: |
+          git status
           git add .
           git commit -m "Committing Docker image"
           git push
