@@ -13,3 +13,12 @@ jobs:
       - name: Test Access To PAT
         run: |
           echo ${{ secrets.PACKAGE_PAT }} | docker login ghcr.io -u benosul --password-stdin
+
+      - name: Test Docker Pull
+        run: |
+          docker pull ghcr.io/benosul/sometests:main
+          docker build -t sometests .
+          docker run sometests "abc"
+
+      - name: Sanity Check
+        run: ls -a 
