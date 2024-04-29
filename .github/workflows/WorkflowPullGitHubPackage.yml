@@ -1,0 +1,21 @@
+name: Pull Package from GitHub Container Registry
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  
+jobs:
+  pull-package:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        run: echo ${{ secrets.PACKAGE_PAT }} | docker login -u ${{ github.actor }} --password-stdin ghcr.io
+
+      - name: Pull Package
+        run: docker inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
