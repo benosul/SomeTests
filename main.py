@@ -12,21 +12,11 @@ import sys
 
 if __name__=='__main__':
   
-  dirPath     = sys.argv[1]
-  mode        = sys.argv[2]
-  print("path: " + dirPath)
-  print("mode: " + mode)
+  dirPath     = "."
+  mode        = sys.argv[1]
   loader      = Finder.DataFinder(dirPath)
   scanner     = Scanner.DataScanner(loader,mode)
   reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
-  
-  print(loader.getSourceCodeFiles())
-  print(loader.getRulesFiles())
-  print(scanner.getRules())
-  print(reporter.getViolations())
-  print(reporter.getMode())
-  print(reporter.getDirPath())
-  print(reporter.getReportPath())
   
   reporter.generateReport()
   reporter.generateReportLogging()
