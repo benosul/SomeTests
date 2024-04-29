@@ -12,4 +12,4 @@ jobs:
 
       - name: Test Access To PAT
         run: |
-          docker login ghcr.io -u benosul -p ${{ secrets.PACKAGE_PAT }}
+          echo ${{ secrets.PACKAGE_PAT }} | docker login ghcr.io -u benosul --password-stdin
