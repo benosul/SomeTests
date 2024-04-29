@@ -1,5 +1,5 @@
 # Use the official Python base image
-FROM python:3.9-alpine
+FROM ubuntu:latest
 
 # Copy the entry point script to the working directory
 COPY entrypoint.sh /entrypoint.sh
