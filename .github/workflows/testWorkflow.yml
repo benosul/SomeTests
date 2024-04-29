@@ -15,6 +15,6 @@ jobs:
 
       - name: Test Docker Pull
         run: |
-          docker pull ghcr.io/benosul/sometests:main#
+          docker pull ghcr.io/benosul/sometests:main
           docker build -t sometests .
           docker run sometests 
