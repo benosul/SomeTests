@@ -25,10 +25,15 @@ jobs:
       - name: Review Docker Logs
         run: |
           docker logs testImage
-          
+
+      
+        
       - name: Copy file from docker image
         run: |
           docker cp testImage:./testFile1.txt testFile1.txt
+
+      - name: Sanity Check
+        run: ls -a
           
       - name: Copy file from docker image
         run: |
