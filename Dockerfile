@@ -1,19 +1,11 @@
-FROM python:3-slim AS builder
-ADD . /app
-WORKDIR /app
+# Use the official Python base image
+FROM python:3.9-alpine
 
-# We are installing a dependency here directly into our app source dir
-# RUN pip install --target=/app os
-# RUN pip install --target=/app logging
-# RUN pip install --target=/app datetime
-# RUN pip install --target=/app re
+# Copy the entry point script to the working directory
+COPY entrypoint.sh /entrypoint.sh
 
-# A distroless container image with Python and some basics like SSL certificates
-# https://github.com/GoogleContainerTools/distroless
-FROM gcr.io/distroless/python3-debian10
-COPY --from=builder /app /app
-COPY testFilesAndDirs/Rules/Rules_Avoid.txt /
-COPY testFilesAndDirs/Rules/Rules_Have.txt /
-WORKDIR /app
-ENV PYTHONPATH /app
-CMD ["/app/main.py"]
+# Grant execute permissions to the entry point script
+RUN chmod +x /entrypoint.sh
+
+# Set the entry point to the script
+ENTRYPOINT ["/entrypoint.sh"]
