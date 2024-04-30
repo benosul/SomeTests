@@ -7,7 +7,7 @@ import os
 
 class DataFinder():
 
-    def __init__(self, gitDirectory:str) -> None:
+    def __init__(self, gitDirectory:str='.') -> None:
         self.gitDirectory    = gitDirectory
         self.VBADirectories  = self.findVbaDirectories()
         self.SourceCodeFiles = self.findFiles()
@@ -30,8 +30,13 @@ class DataFinder():
 
     def findVbaDirectories(self) -> list:
         vbaDirectories = [vbaDirectory for vbaDirectory,_,_ in os.walk(self.gitDirectory) if vbaDirectory.endswith("_vba")]
+        if len(vbaDirectories) == 0:
+            raise Exception("No vba source code files found.")
         return vbaDirectories
 
     def findRulesFiles(self) -> list:
-        rulesFiles = [os.path.join(root,file) for root,dirs,files in os.walk('source/testFilesAndDirs/') for file in files if file.startswith("Rules_")]
+        rulesFiles = [os.path.join(root,file) for root,dirs,files in os.walk('.') for file in files if file.startswith("Rules_")]
+        if len(rulesFiles) == 0:
+            raise Exception("No rules files found.")
+
         return rulesFiles
