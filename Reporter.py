@@ -15,11 +15,11 @@ class DataReporter():
         self.names       = names
         self.dirPath    = dirPath
         timestamp       = str(datetime.now())[:20].replace(".","").replace(":","-").replace(" ","_")
-        self.reportPath = "report.txt"
+        self.reportPath = "./output/report.txt"
         with open(self.reportPath,"w"):
             pass
         # Setting up logging:
-        logging.basicConfig(filename="log_Report.log",format='%(levelname)-8s: %(message)s')
+        logging.basicConfig(filename="./output/report.log",format='%(levelname)-8s: %(message)s')
 
     def getViolations(self):
         return self.violations
