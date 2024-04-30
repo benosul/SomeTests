@@ -6,12 +6,13 @@ import logging
 
 class DataReporter():
 
-    def __init__(self,violations,severity:dict,names:dict) -> None:
+    def __init__(self,violations,severity:dict,names:dict,dirPath) -> None:
         self.violationsUser     = violations[0]
         self.violationsReview   = violations[1]
         self.severity           = severity
         self.names              = names
-        self.reportPath         = "./output/Report.txt"
+        self.dirPath            = dirPath
+        self.reportPath         = "Report.txt"
         
 
     def getViolations(self):
@@ -29,7 +30,7 @@ class DataReporter():
         self.reportPath = self.dirPath + self.reportPath
         
     def generateUserReport(self):
-        with open("User" + self.reportPath,"a") as file:
+        with open(dirPath + "/" + "User" + self.reportPath,"a") as file:
             for key1 in self.violationsUser:
                 file.write("File:\t" + key1 + "\n")
                 for key2 in self.violationsUser[key1]:
@@ -41,7 +42,7 @@ class DataReporter():
                             file.write("\t\t\tLines: " + str(lines) + "\n")
 
     def generateReviewReport(self):
-        with open("Review" + self.reportPath,"a") as file:
+        with open(dirPath + "/" +"Review" + self.reportPath,"a") as file:
             for key1 in self.violationsReview:
                 file.write("Severity:\t" + key1 + "\n")
                 for key2 in self.violationsReview[key1]:
