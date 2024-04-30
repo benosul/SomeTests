@@ -17,24 +17,20 @@ import os
 
 class DataScanner():
 
-    def __init__(self,data,reportType:str="User") -> None:
-        self.rules        = {"have":[],"avoid":[]}
-        self.ruleSeverity = {}
-        self.ruleNames    = {}
-        self.violations   = {}
-        self.data         = data
-        self.ReportType   = reportType # "User" or "Reviewer"
+    def __init__(self,data) -> None:
+        self.rules              = {"have":[],"avoid":[]}
+        self.ruleSeverity       = {}
+        self.ruleNames          = {}
+        self.violationsUser     = {}
+        self.violationsReview   = {}
+        self.data               = data
         self.parseRules()
         self.findViolations()
 
-    def getRules(self) -> dict:
-        return self.rules
-    def getViolations(self):
-        return self.violations
-    def getRuleSeverity(self):
-        return self.ruleSeverity
-    def getRuleName(self):
-        return self.ruleNames
+    def getRules(self): return self.rules
+    def getViolations(self): return self.violationsUser, self.violationsReview
+    def getRuleSeverity(self): return self.ruleSeverity
+    def getRuleName(self): return self.ruleNames
 
     def parseRules(self,rulesFile=""):
         if rulesFile == "":
@@ -90,19 +86,16 @@ class DataScanner():
                         for rule in self.rules[ruleType]:
                             severity = self.ruleSeverity[rule]
                             if re.search(rule,str(content)) is None:
-                                if self.ReportType == "User":
-                                    if not sourcefile in self.violations:
-                                        self.violations.update({ sourcefile : {} })
-                                    if not severity in self.violations[sourcefile]:
-                                        self.violations[sourcefile].update({severity : {} })
-                                    self.violations[sourcefile][severity][rule] = True
-                                elif self.ReportType == "Reviewer":
-                                    if not severity in self.violations:
-                                        self.violations.update({ severity : {} })
-                                    if not rule in self.violations[severity]:
-                                        self.violations[severity].update({ rule : {}})
-                                    self.violations[severity][rule][sourcefile] = True
-                                else: raise Exception("Invalid Report type provided.")
+                                if not sourcefile in self.violationsUser:
+                                    self.violationsUser.update({ sourcefile : {} })
+                                if not severity in self.violationsUser[sourcefile]:
+                                    self.violationsUser[sourcefile].update({severity : {} })
+                                self.violationsUser[sourcefile][severity][rule] = True
+                                if not severity in self.violationsReview:
+                                    self.violationsReview.update({ severity : {} })
+                                if not rule in self.violationsReview[severity]:
+                                    self.violationsReview[severity].update({ rule : {}})
+                                self.violationsReview[severity][rule][sourcefile] = True
                     elif ruleType=="avoid":
                         for rule in self.rules[ruleType]:
                             if not re.search(rule,str(content)) is None:
@@ -111,23 +104,29 @@ class DataScanner():
                                 for linenumber, line in enumerate(content):
                                     if re.search(rule,line):
                                         tempList.append(str(linenumber+1))
-                                        if self.ReportType == "User":
-                                            if not sourcefile in self.violations:
-                                                self.violations.update({sourcefile:{}})
-                                            if not severity in self.violations[sourcefile]:
-                                                self.violations[sourcefile].update({severity : {}})
-                                            if not rule in self.violations[sourcefile]:
-                                                self.violations[sourcefile][severity].update({rule:[]})
-                                        elif self.ReportType == "Reviewer":
-                                            if not severity in self.violations:
-                                                self.violations.update({ severity : {} })
-                                            if not rule in self.violations[severity]:
-                                                self.violations[severity].update({ rule : {}})
-                                            if not file in self.violations[severity][rule]:
-                                                self.violations[severity][rule].update({ sourcefile : [] })
-                                        else: raise Exception("Invalid Report type provided.")
+                                        if not sourcefile in self.violationsUser:
+                                            self.violationsUser.update({sourcefile:{}})
+                                        if not severity in self.violationsUser[sourcefile]:
+                                            self.violationsUser[sourcefile].update({severity : {}})
+                                        if not rule in self.violationsUser[sourcefile]:
+                                            self.violationsUser[sourcefile][severity].update({rule:[]})
+                                        if not severity in self.violationsReview:
+                                            self.violationsReview.update({ severity : {} })
+                                        if not rule in self.violationsReview[severity]:
+                                            self.violationsReview[severity].update({ rule : {}})
+                                        if not file in self.violationsReview[severity][rule]:
+                                            self.violationsReview[severity][rule].update({ sourcefile : [] })
                                 if tempList != []:
-                                    if self.ReportType == "User":
-                                        self.violations[sourcefile][severity][rule] = tempList
-                                    elif self.ReportType == "Reviewer":
-                                        self.violations[severity][rule][sourcefile]= tempList
+                                    self.violationsUser[sourcefile][severity][rule] = tempList
+                                    self.violationsReview[severity][rule][sourcefile]= tempList
+
+class LoadedScanner(DataScanner):
+
+    def __init__(self,data,rules,ruleSeverity,ruleNames):
+        self.rules              = rules
+        self.ruleSeverity       = ruleSeverity
+        self.ruleNames          = ruleNames
+        self.violationsUser     = {}
+        self.violationsReview   = {}
+        self.data               = data
+        self.findViolations()
