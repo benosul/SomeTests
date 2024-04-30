@@ -50,4 +50,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Report
-          path: ./output/report.txt, ./output/report.log
+          path: |
+            ./output/ReviewReport.log
+            ./output/ReviewReport.txt
+            ./output/UserReport.txt
