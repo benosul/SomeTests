@@ -33,7 +33,7 @@ jobs:
 
       - name: Run Docker Image
         run: |
-          docker run -v ${{ github.workspace }}/outputs:/app/Reports --name testImage ghcr.io/${{ github.actor }}/sometests:main
+          docker run -v ${{ github.workspace }}/outputs:/app/Reports/outputs --name testImage ghcr.io/${{ github.actor }}/sometests:main
           
       - name: Review Docker Logs
         run: |
