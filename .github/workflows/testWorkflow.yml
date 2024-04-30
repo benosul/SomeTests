@@ -10,6 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: "dev"
           path: "./repo"
 
       - name: Test Access To PAT
