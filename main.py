@@ -20,7 +20,7 @@ for dir,subdir,file in os.walk("../../"):
     
 print("Hello World")
 
-with open("Reports/output/testFile1.txt",'w'):
+with open("./output/testFile1.txt",'w'):
     pass
   
 dirPath     = "Reports/output"
