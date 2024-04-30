@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: "dev"
-          path: "./repo"
+          path: "./outputs"
 
       - name: Test Access To PAT
         run: |
@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Docker Image
         run: |
-          docker run -v ./repo:/app/Reports/output --name testImage ghcr.io/${{ github.actor }}/sometests:main
+          docker run -v ./outputs:/app/Reports --name testImage ghcr.io/${{ github.actor }}/sometests:main
           
       - name: Review Docker Logs
         run: |
