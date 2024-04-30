@@ -17,17 +17,12 @@ if __name__=='__main__':
     pass
   
   dirPath     = os.environ.get('GITHUB_WORKSPACE')
+  
   loader      = Finder.DataFinder(dirPath)
-  scanner     = Scanner.DataScanner(loader)
+  scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2],dirPath)
   reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
-  print(loader.getSourceCodeFiles())
-  print(loader.getRulesFiles())
-  print(scanner.getRules())
-  print(reporter.getViolations())
-  print(reporter.getMode())
-  print(reporter.getDirPath())
-  print(reporter.getReportPath())
-  
-  reporter.generateReport()
-  reporter.generateReportLogging()
+  reporter.generateUserReport()
+  reporter.generateReviewReport()
+  # reporter.generateUserReportLog()
+  reporter.generateReviewReportLog()
