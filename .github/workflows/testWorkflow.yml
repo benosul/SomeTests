@@ -28,7 +28,7 @@ jobs:
         run: |
           ls -a
           echo "----------------------------"
-          ls ./outputs
+          ls "${{ github.workspace }}/outputs"
         
 
       - name: Run Docker Image
