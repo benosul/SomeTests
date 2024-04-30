@@ -11,9 +11,9 @@ import src.Reporter
 import sys
 import os
 
-for dir,subdir,file in os.walk("../"):
+for dir,subdir,file in os.walk("../../"):
+    print(dir)
     if dir in ["../app","../Reports"]: 
-        print(dir)
         print(subdir)
         print(file)
     
