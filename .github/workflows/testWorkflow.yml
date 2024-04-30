@@ -23,12 +23,13 @@ jobs:
       - name: Sanity Check
         run: |
           ls -a
+          echo "----------------------------"
           ls ./repo
         
 
       - name: Run Docker Image
         run: |
-          docker run -v "./repo":"./output" --name testImage ghcr.io/${{ github.actor }}/sometests:main
+          docker run -v "./repo":"output/" --name testImage ghcr.io/${{ github.actor }}/sometests:main
           
       - name: Review Docker Logs
         run: |
@@ -38,6 +39,7 @@ jobs:
       - name: Sanity Check
         run: |
           ls -a
+          echo "----------------------------"
           ls ./repo
 
       - name: Upload Artifact
