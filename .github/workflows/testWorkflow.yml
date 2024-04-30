@@ -29,7 +29,7 @@ jobs:
 
       - name: Run Docker Image
         run: |
-          docker run -v "./repo":"output/" --name testImage ghcr.io/${{ github.actor }}/sometests:main
+          docker run -v ./repo:/app/Reports/output --name testImage ghcr.io/${{ github.actor }}/sometests:main
           
       - name: Review Docker Logs
         run: |
