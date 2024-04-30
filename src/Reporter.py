@@ -30,7 +30,7 @@ class DataReporter():
         self.reportPath = self.dirPath + self.reportPath
         
     def generateUserReport(self):
-        with open(dirPath + "/" + "User" + self.reportPath,"a") as file:
+        with open(self.dirPath + + "/" + "User" + self.reportPath,"a") as file:
             for key1 in self.violationsUser:
                 file.write("File:\t" + key1 + "\n")
                 for key2 in self.violationsUser[key1]:
@@ -42,7 +42,7 @@ class DataReporter():
                             file.write("\t\t\tLines: " + str(lines) + "\n")
 
     def generateReviewReport(self):
-        with open(dirPath + "/" +"Review" + self.reportPath,"a") as file:
+        with open(self.dirPath + + "/" +"Review" + self.reportPath,"a") as file:
             for key1 in self.violationsReview:
                 file.write("Severity:\t" + key1 + "\n")
                 for key2 in self.violationsReview[key1]:
@@ -55,7 +55,7 @@ class DataReporter():
 
     def generateUserReportLog(self):
         # Setting up logging:
-        logging.basicConfig(filename="./output/UserReport.log",format='%(levelname)-8s: %(message)s')        
+        logging.basicConfig(filename= self.dirPath + "/UserReport.log",format='%(levelname)-8s: %(message)s')        
         for location in self.violationsUser:
             for severity in self.violationsUser[location]:
                 for rule in self.violationsUser[location][severity]:
@@ -74,7 +74,7 @@ class DataReporter():
                         raise Exception("Invalid Severity Level found:" + severity)
     def generateReviewReportLog(self):
         # Setting up logging:
-        logging.basicConfig(filename="./output/ReviewReport.log",format='%(levelname)-8s: %(message)s')
+        logging.basicConfig(filename= self.dirPath + "/ReviewReport.log",format='%(levelname)-8s: %(message)s')
         for severity in self.violationsReview:
             for rule in self.violationsReview[severity]:
                 for location in self.violationsReview[severity][rule]:
