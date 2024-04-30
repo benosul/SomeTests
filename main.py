@@ -5,18 +5,18 @@
 # Then we have maybe a class that does the checking provided a file?
 # We could have a class the logs the errors and creates two logs of must have violations and should have violations?
 
-import src.Finder
-import src.Scanner
-import src.Reporter
+import src.Finder as Finder
+import src.Scanner as Scanner
+import src.Reporter as Reporter
 import sys
 import os
 
 for dir,subdir,file in os.walk("../"):
-    
-    if dir in ["../app","../Reports"]: 
-        print(dir)
-        print(subdir)
-        print(file)
+    for correct in  ["../app","../Reports"]:
+        if correct in dir: 
+            print(dir)
+            print(subdir)
+            print(file)
     
 print("Hello World")
 
