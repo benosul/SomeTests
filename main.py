@@ -13,12 +13,12 @@ import os
 
 for dir,subdir,file in os.walk("../"):
     for correct in  ["../app","../Reports"]:
-        if correct in dir: 
+        if correct in dir and "." not in dir: 
             print(dir)
             print(subdir)
             print(file)
     
-print("Hello World")
+
 
 with open("./output/testFile1.txt",'w'):
     pass
