@@ -6,13 +6,12 @@ import logging
 
 class DataReporter():
 
-    def __init__(self,violations,severity:dict,names:dict,dirPath:str=".") -> None:
+    def __init__(self,violations,severity:dict,names:dict) -> None:
         self.violationsUser     = violations[0]
         self.violationsReview   = violations[1]
         self.severity           = severity
         self.names              = names
-        self.dirPath            = dirPath
-        self.reportPath         = "Report.txt"
+        self.reportPath         = "./output/Report.txt"
         
 
     def getViolations(self):
@@ -55,7 +54,7 @@ class DataReporter():
 
     def generateUserReportLog(self):
         # Setting up logging:
-        logging.basicConfig(filename="UserReport.log",format='%(levelname)-8s: %(message)s')        
+        logging.basicConfig(filename="./output/UserReport.log",format='%(levelname)-8s: %(message)s')        
         for location in self.violationsUser:
             for severity in self.violationsUser[location]:
                 for rule in self.violationsUser[location][severity]:
@@ -74,7 +73,7 @@ class DataReporter():
                         raise Exception("Invalid Severity Level found:" + severity)
     def generateReviewReportLog(self):
         # Setting up logging:
-        logging.basicConfig(filename="ReviewReport.log",format='%(levelname)-8s: %(message)s')
+        logging.basicConfig(filename="./output/ReviewReport.log",format='%(levelname)-8s: %(message)s')
         for severity in self.violationsReview:
             for rule in self.violationsReview[severity]:
                 for location in self.violationsReview[severity][rule]:
