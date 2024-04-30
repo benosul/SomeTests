@@ -27,7 +27,7 @@ dirPath     = "./output"
   
 loader      = Finder.DataFinder(dirPath)
 scanner     = Scanner.DataScanner(loader)
-reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
+reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),dirPath)
   
 reporter.generateUserReport()
 reporter.generateReviewReport()
