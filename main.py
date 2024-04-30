@@ -23,13 +23,13 @@ for dir,subdir,file in os.walk("../"):
 with open("./output/testFile1.txt",'w'):
     pass
   
-dirPath     = "Reports/output"
+#dirPath     = "./output"
   
-loader      = Finder.DataFinder(dirPath)
-scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
-reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
+#loader      = Finder.DataFinder(dirPath)
+#scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
+#reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
-reporter.generateUserReport()
-reporter.generateReviewReport()
+#reporter.generateUserReport()
+#reporter.generateReviewReport()
 # reporter.generateUserReportLog()
-reporter.generateReviewReportLog()
+#reporter.generateReviewReportLog()
