@@ -20,10 +20,10 @@ for dir,subdir,file in os.walk("../../"):
     
 print("Hello World")
 
-with open("./output/testFile1.txt",'w'):
+with open("Reports/output/testFile1.txt",'w'):
     pass
   
-dirPath     = "./output"
+dirPath     = "Reports/output"
   
 loader      = Finder.DataFinder(dirPath)
 scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
