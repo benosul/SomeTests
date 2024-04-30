@@ -26,7 +26,7 @@ with open("./output/testFile1.txt",'w'):
 dirPath     = "./output"
   
 loader      = Finder.DataFinder(dirPath)
-scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
+scanner     = Scanner.DataScanner(loader)
 reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
 reporter.generateUserReport()
