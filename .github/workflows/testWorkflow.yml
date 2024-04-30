@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: "./repo"
 
       - name: Test Access To PAT
         run: |
@@ -18,31 +20,28 @@ jobs:
         run: |
           docker pull ghcr.io/benosul/sometests:main
 
+      - name: Sanity Check
+        run: |
+          ls -a
+          ls ./repo
+        
+
       - name: Run Docker Image
         run: |
-          docker run -v ${{GITHUB_WORKSPACE}}:./output --name testImage ghcr.io/${{ github.actor }}/sometests:main "User"
+          docker run -v "./repo":"./output" --name testImage ghcr.io/${{ github.actor }}/sometests:main
           
       - name: Review Docker Logs
         run: |
           docker logs testImage
-        
-      - name: Copy file from docker image
-        run: |
-          docker cp testImage:./output/testFile1.txt testFile1.txt
+  
 
       - name: Sanity Check
-        run: ls -a
-          
-      - name: Copy file from docker image
         run: |
-          docker cp testImage:./output/report.txt ./report.txt
-          docker cp testImage:./output/report.log ./report.log
-        
-      - name: Sanity Check
-        run: ls -a
+          ls -a
+          ls ./repo
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Report
-          path: report.txt, report.log
+          path: ./repo/report.txt, ./repo/report.log
