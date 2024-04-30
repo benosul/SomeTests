@@ -1,6 +1,8 @@
 # Use the official Python base image
 FROM python:3.11
 
+WORKDIR ./Reports
+
 # Copy the entry point script to the working directory
 COPY src/ ./src/
 COPY Rules/ ./Rules/
