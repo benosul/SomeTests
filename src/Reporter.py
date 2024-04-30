@@ -30,7 +30,7 @@ class DataReporter():
         self.reportPath = self.dirPath + self.reportPath
         
     def generateUserReport(self):
-        with open(self.dirPath + + "/" + "User" + self.reportPath,"a") as file:
+        with open(self.dirPath + "/" + "User" + self.reportPath,"a") as file:
             for key1 in self.violationsUser:
                 file.write("File:\t" + key1 + "\n")
                 for key2 in self.violationsUser[key1]:
@@ -42,7 +42,7 @@ class DataReporter():
                             file.write("\t\t\tLines: " + str(lines) + "\n")
 
     def generateReviewReport(self):
-        with open(self.dirPath + + "/" +"Review" + self.reportPath,"a") as file:
+        with open(self.dirPath + "/" +"Review" + self.reportPath,"a") as file:
             for key1 in self.violationsReview:
                 file.write("Severity:\t" + key1 + "\n")
                 for key2 in self.violationsReview[key1]:
