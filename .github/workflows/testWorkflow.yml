@@ -13,6 +13,9 @@ jobs:
           ref: "dev"
           path: "./outputs"
 
+      - name: Sanity Check
+        run: echo "${{ github.workspace }}"
+
       - name: Test Access To PAT
         run: |
           echo ${{ secrets.PACKAGE_PAT }} | docker login ghcr.io -u benosul --password-stdin
