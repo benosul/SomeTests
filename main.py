@@ -11,6 +11,11 @@ import src.Reporter
 import sys
 import os
 
+for dir,subdir,file in os.walk("."):
+    print(dir)
+    print(subdir)
+    print(file)
+    
 print("Hello World")
 
 with open("./output/testFile1.txt",'w'):
