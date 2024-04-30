@@ -11,18 +11,18 @@ import src.Reporter
 import sys
 import os
 
-if __name__=='__main__':
+print("Hello World")
 
-  with open("./output/testFile1.txt",'w'):
+with open("./output/testFile1.txt",'w'):
     pass
   
-  dirPath     = "./output"
+dirPath     = "./output"
   
-  loader      = Finder.DataFinder(dirPath)
-  scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
-  reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
+loader      = Finder.DataFinder(dirPath)
+scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
+reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
-  reporter.generateUserReport()
-  reporter.generateReviewReport()
-  # reporter.generateUserReportLog()
-  reporter.generateReviewReportLog()
+reporter.generateUserReport()
+reporter.generateReviewReport()
+# reporter.generateUserReportLog()
+reporter.generateReviewReportLog()
