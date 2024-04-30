@@ -9,19 +9,17 @@ import src.Finder
 import src.Scanner
 import src.Reporter
 import sys
+import os
 
 if __name__=='__main__':
 
   with open("testFile1.txt",'w'):
     pass
   
-  dirPath     = "."
-  mode        = sys.argv[1]
-  print("path: " + dirPath)
-  print("mode: " + mode)
+  dirPath     = os.environ.get('GITHUB_WORKSPACE')
   loader      = Finder.DataFinder(dirPath)
-  scanner     = Scanner.DataScanner(loader,mode)
-  reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName(),mode,dirPath)
+  scanner     = Scanner.DataScanner(loader)
+  reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
   print(loader.getSourceCodeFiles())
   print(loader.getRulesFiles())
