@@ -13,10 +13,10 @@ import os
 
 if __name__=='__main__':
 
-  with open("testFile1.txt",'w'):
+  with open("./output/testFile1.txt",'w'):
     pass
   
-  dirPath     = os.environ.get('GITHUB_WORKSPACE')
+  dirPath     = "./output"
   
   loader      = Finder.DataFinder(dirPath)
   scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
