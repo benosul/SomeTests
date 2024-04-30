@@ -19,7 +19,7 @@ if __name__=='__main__':
   dirPath     = os.environ.get('GITHUB_WORKSPACE')
   
   loader      = Finder.DataFinder(dirPath)
-  scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2],dirPath)
+  scanner     = Scanner.DataScanner(loader,ruleDicts[0],ruleDicts[1],ruleDicts[2])
   reporter    = Reporter.DataReporter(scanner.getViolations(),scanner.getRuleSeverity(),scanner.getRuleName())
   
   reporter.generateUserReport()
